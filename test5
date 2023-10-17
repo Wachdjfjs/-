@@ -1,0 +1,17 @@
+import torch
+import torch.nn as nn
+class Tudui(nn.Module):
+    def __init__(self,*args,**kwargs):
+        super().__init__()
+    def forward(self,input):
+        output = input+1
+        return output
+tudui = Tudui()
+x = torch.tensor(12)
+y = tudui.forward(x)
+print(y)
+
+import torchvision
+from torch.utils.data import DataLoader
+train_data = torchvision.datasets.CIFAR10(root='data',transform=torchvision.transforms.ToTensor(),download=True)
+train_loader = DataLoader(train_data,batch_size=64,shuffle=True,drop_last=True)
